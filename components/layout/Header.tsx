@@ -1,0 +1,39 @@
+import Image from "next/image";
+
+const navItems = [
+  { href: "#volume-dress", label: "Volume Dress" },
+  { href: "#simple-dress", label: "Simple Dress" },
+  { href: "#accessories", label: "Accessories" },
+];
+
+export default function Header() {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
+      <div className="flex items-center justify-between px-6 lg:px-12 py-4">
+        <a href="#top" className="flex items-baseline gap-2 flex-shrink-0">
+          <Image src="/logo/sonreve_BI.png" alt="SON RÊVE" width={361} height={87} className="h-6 w-auto" priority />
+          <span className="text-[9px] tracking-[0.35em] uppercase text-foreground/40">Pro</span>
+        </a>
+
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-[11px] tracking-[0.2em] uppercase text-foreground/60 hover:text-foreground transition-colors duration-300"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <a
+          href="#contact"
+          className="text-[11px] tracking-[0.25em] uppercase border border-foreground/20 px-4 py-2 hover:border-foreground/60 transition-colors duration-300"
+        >
+          お問い合わせ
+        </a>
+      </div>
+    </header>
+  );
+}
