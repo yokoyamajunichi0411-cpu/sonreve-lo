@@ -10,9 +10,8 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
       <div className="flex items-center justify-between px-6 lg:px-12 py-4">
-        <a href="#top" className="flex items-baseline gap-2 flex-shrink-0">
-          <Image src="/logo/sonreve_BI.png" alt="SON RÊVE" width={361} height={87} className="h-6 w-auto" priority />
-          <span className="text-[9px] tracking-[0.35em] uppercase text-foreground/40">Pro</span>
+        <a href="#top" className="flex items-center flex-shrink-0">
+          <Image src="/logo/sonreve_logo_dark.png" alt="SON RÊVE / Wedding Dress Rental & Photo" width={4608} height={3072} className="h-16 w-auto" priority />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">

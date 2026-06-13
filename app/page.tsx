@@ -25,25 +25,27 @@ export default function Home() {
     <div id="top">
       {/* HERO */}
       <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 px-6 lg:px-12 bg-foreground text-background overflow-hidden">
-        <FadeIn>
+        <FadeIn className="text-center mx-auto">
           <p className="text-[10px] tracking-[0.5em] uppercase text-background/40 mb-8">
             For Photographers &amp; Studios
           </p>
           <h1
-            className="text-4xl lg:text-7xl font-light leading-[1.2] max-w-3xl mb-8"
+            className="text-4xl lg:text-7xl font-light leading-[1.2] max-w-3xl mx-auto mb-8"
             style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}
           >
             撮影のためのドレスを、もっと自由に。
           </h1>
-          <p className="text-sm text-background/60 leading-loose tracking-wider max-w-lg mb-10">
+          <p className="text-sm text-background/60 leading-loose tracking-wider max-w-lg mx-auto mb-10">
             韓国直輸入のウェディングドレスを、撮影業者・カメラマン様向けに法人レンタル。
             ボリュームドレスからシンプルドレス、アクセサリーまで一括でご用意しています。
           </p>
           <a
-            href="#contact"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-4 border border-background/30 text-[11px] tracking-[0.3em] uppercase hover:border-background/70 transition-colors duration-500"
           >
-            お問い合わせ
+            公式LINEで問い合わせる
           </a>
         </FadeIn>
       </section>
@@ -122,7 +124,7 @@ export default function Home() {
 
       {/* CONTACT */}
       <section id="contact" className="py-24 lg:py-32 px-6 lg:px-12 bg-foreground text-background">
-        <FadeIn className="max-w-xl">
+        <FadeIn className="max-w-xl mx-auto text-center">
           <p className="text-[10px] tracking-[0.5em] uppercase text-background/40 mb-4">Contact</p>
           <h2
             className="text-3xl lg:text-4xl font-light mb-8"
@@ -146,7 +148,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-8 px-6 lg:px-12 bg-foreground text-background/30 border-t border-background/10">
+      <footer className="py-8 px-6 lg:px-12 bg-foreground text-background/30 border-t border-background/10 text-center">
         <p className="text-[11px] tracking-wider">
           © {new Date().getFullYear()} SON RÊVE. All rights reserved.
         </p>
