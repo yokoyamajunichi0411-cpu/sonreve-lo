@@ -10,6 +10,7 @@ interface ImageCarouselProps {
 export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+  const drag = useRef<{ startX: number; scrollLeft: number; dragging: boolean } | null>(null);
 
   function handleScroll() {
     const track = trackRef.current;
@@ -18,12 +19,33 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
     setIndex(i);
   }
 
+  function handlePointerDown(e: React.PointerEvent<HTMLDivElement>) {
+    const track = trackRef.current;
+    if (!track) return;
+    drag.current = { startX: e.clientX, scrollLeft: track.scrollLeft, dragging: true };
+    track.setPointerCapture(e.pointerId);
+  }
+
+  function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
+    const track = trackRef.current;
+    if (!track || !drag.current?.dragging) return;
+    track.scrollLeft = drag.current.scrollLeft - (e.clientX - drag.current.startX);
+  }
+
+  function endDrag() {
+    if (drag.current) drag.current.dragging = false;
+  }
+
   return (
     <div className="absolute inset-0">
       <div
         ref={trackRef}
         onScroll={handleScroll}
-        className="flex h-full w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={endDrag}
+        onPointerLeave={endDrag}
+        className="flex h-full w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing"
       >
         {images.map((src, i) => (
           <img
