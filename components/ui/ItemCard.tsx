@@ -1,4 +1,5 @@
 import FadeIn from "./FadeIn";
+import ImageCarousel from "./ImageCarousel";
 import type { RentalItem } from "@/lib/items";
 
 interface ItemCardProps {
@@ -16,7 +17,9 @@ export default function ItemCard({ item, delay = 0 }: ItemCardProps) {
           className="relative aspect-[3/4] bg-muted overflow-hidden mb-3 border-t-2"
           style={{ borderTopColor: accent }}
         >
-          {item.image ? (
+          {item.images && item.images.length > 0 ? (
+            <ImageCarousel images={item.images} alt={item.name} />
+          ) : item.image ? (
             <img
               src={item.image}
               alt={item.name}

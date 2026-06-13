@@ -1,0 +1,53 @@
+"use client";
+
+import { useRef, useState } from "react";
+
+interface ImageCarouselProps {
+  images: string[];
+  alt: string;
+}
+
+export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
+  const [index, setIndex] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  function handleScroll() {
+    const track = trackRef.current;
+    if (!track) return;
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    setIndex(i);
+  }
+
+  return (
+    <div className="absolute inset-0">
+      <div
+        ref={trackRef}
+        onScroll={handleScroll}
+        className="flex h-full w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+      >
+        {images.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`${alt} ${i + 1}`}
+            draggable={false}
+            className="h-full w-full object-cover flex-shrink-0 snap-start select-none"
+          />
+        ))}
+      </div>
+
+      {images.length > 1 && (
+        <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 pointer-events-none">
+          {images.map((_, i) => (
+            <span
+              key={i}
+              className={`h-1.5 w-1.5 rounded-full transition-colors duration-300 ${
+                i === index ? "bg-background" : "bg-background/40"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}

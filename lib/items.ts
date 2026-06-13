@@ -5,6 +5,7 @@ export interface RentalItem {
   name: string;
   grade: Grade;
   image?: string;
+  images?: string[];
 }
 
 function placeholderSet(prefix: string, count: number, label: string): RentalItem[] {
@@ -19,6 +20,11 @@ function placeholderSet(prefix: string, count: number, label: string): RentalIte
 }
 
 export const volumeDresses: RentalItem[] = placeholderSet("VD", 8, "Volume Dress");
+volumeDresses[0].images = [
+  "/sample/dress-sample-1.jpg",
+  "/sample/dress-sample-2.jpg",
+  "/sample/dress-sample-3.jpg",
+];
 
 export const simpleDresses: RentalItem[] = placeholderSet("SD", 8, "Simple Dress");
 
