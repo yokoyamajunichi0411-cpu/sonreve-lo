@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState } from "react";
 
 interface ImageCarouselProps {
   images: string[];
@@ -9,27 +9,8 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   const [index, setIndex] = useState(0);
-  const [landscape, setLandscape] = useState<Record<number, boolean>>({});
   const trackRef = useRef<HTMLDivElement>(null);
   const drag = useRef<{ startX: number; scrollLeft: number; dragging: boolean } | null>(null);
-
-  const imgRefs = useRef<(HTMLImageElement | null)[]>([]);
-
-  const checkOrientation = useCallback(() => {
-    imgRefs.current.forEach((img, i) => {
-      if (img && img.naturalWidth > img.naturalHeight) {
-        setLandscape(prev => prev[i] ? prev : { ...prev, [i]: true });
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    checkOrientation();
-  }, [checkOrientation]);
-
-  const handleImageLoad = useCallback(() => {
-    checkOrientation();
-  }, [checkOrientation]);
 
   function handleScroll() {
     const track = trackRef.current;
@@ -56,7 +37,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   }
 
   return (
-    <div className="absolute inset-0">
+    <div className="absolute inset-0 bg-muted">
       <div
         ref={trackRef}
         onScroll={handleScroll}
@@ -69,14 +50,10 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
         {images.map((src, i) => (
           <img
             key={src}
-            ref={el => { imgRefs.current[i] = el; }}
             src={src}
             alt={`${alt} ${i + 1}`}
             draggable={false}
-            onLoad={handleImageLoad}
-            className={`h-full w-full flex-shrink-0 snap-start select-none ${
-              landscape[i] ? "object-contain bg-muted" : "object-cover"
-            }`}
+            className="h-full w-full object-contain flex-shrink-0 snap-start select-none"
           />
         ))}
       </div>
@@ -87,7 +64,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
             <span
               key={i}
               className={`h-1.5 w-1.5 rounded-full transition-colors duration-300 ${
-                i === index ? "bg-background" : "bg-background/40"
+                i === index ? "bg-foreground/60" : "bg-foreground/20"
               }`}
             />
           ))}
