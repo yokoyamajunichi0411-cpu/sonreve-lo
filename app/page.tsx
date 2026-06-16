@@ -2,6 +2,13 @@ import FadeIn from "@/components/ui/FadeIn";
 import ItemCard from "@/components/ui/ItemCard";
 import { volumeDresses, simpleDresses, accessories } from "@/lib/items";
 
+const targets = [
+  "前撮り・フォトウェディング専門スタジオ",
+  "フリーランスカメラマン",
+  "ウェディング撮影事業者",
+  "写真館・フォトスタジオ",
+];
+
 const valueProps = [
   {
     title: "Price Advantage",
@@ -23,51 +30,82 @@ const valueProps = [
 const flowSteps = [
   {
     step: "01",
-    title: "LINEで無料カタログを請求",
-    desc: "公式LINEに「カタログ希望」と送るだけ。ドレス一覧・料金表をまとめたPDFカタログをお送りします。",
+    title: "LINEでカタログ請求",
+    desc: "「カタログ希望」と送るだけ。料金・ドレス一覧をPDFでお送りします。",
   },
   {
     step: "02",
-    title: "着数・日程をご相談",
-    desc: "カタログをご確認いただいた後、レンタル着数・撮影日程・お届け先をLINEまたはメールでお知らせください。",
+    title: "着数・日程を相談",
+    desc: "カタログ確認後、着数・撮影日程・お届け先をご連絡ください。",
   },
   {
     step: "03",
     title: "配送・撮影",
-    desc: "ご指定の日時に撮影現場またはスタジオへ直送。クリーニング済みの状態でお届けするので、届いたその日に撮影できます。",
+    desc: "撮影現場またはスタジオへ直送。届いたその日に撮影できます。",
   },
   {
     step: "04",
-    title: "撮影後に返却",
-    desc: "撮影終了後は同梱の返送伝票で発送するだけ。クリーニングはこちらで対応するので手間いらずです。",
+    title: "返却（送るだけ）",
+    desc: "同梱の返送伝票で発送するだけ。クリーニングはこちら対応。",
   },
+];
+
+const catalogContents = [
+  "全ドレスのカラー写真一覧",
+  "レンタル料金表（税込）",
+  "サイズ・配送エリア情報",
+  "レンタル規約・破損時の対応",
+  "法人プラン・まとめ割引について",
 ];
 
 const LINE_URL = "#";
 
-function CtaButton({ label = "無料カタログをLINEで受け取る（初回10% OFF）" }: { label?: string }) {
+function CtaBlock({ dark = false }: { dark?: boolean }) {
   return (
     <div className="text-center">
       <a
         href={LINE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center px-8 py-4 bg-accent-premium text-foreground text-[11px] tracking-[0.3em] uppercase hover:opacity-90 transition-opacity duration-300 mb-3"
+        className="inline-flex items-center justify-center px-8 py-4 bg-accent-premium text-foreground text-[11px] tracking-[0.25em] uppercase hover:opacity-90 transition-opacity duration-300 mb-3"
       >
-        {label}
+        無料カタログをLINEで受け取る（初回10% OFF）
       </a>
-      <p className="text-[10px] text-foreground/40 tracking-wider">登録無料・返信は通常24時間以内</p>
+      <p className={`text-[10px] tracking-wider ${dark ? "text-background/30" : "text-foreground/40"}`}>
+        登録無料・返信は通常24時間以内
+      </p>
     </div>
+  );
+}
+
+function SectionCta() {
+  return (
+    <a
+      href={LINE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center justify-center px-6 py-3 bg-accent-premium text-foreground text-[10px] tracking-[0.2em] uppercase hover:opacity-90 transition-opacity duration-300 self-start md:self-auto"
+    >
+      カタログを受け取る
+    </a>
   );
 }
 
 export default function Home() {
   return (
     <div id="top">
-      {/* HERO */}
-      <section className="relative pt-36 pb-24 lg:pt-52 lg:pb-32 px-6 lg:px-12 bg-foreground text-background overflow-hidden">
-        <FadeIn className="text-center mx-auto">
-          <p className="text-[10px] tracking-[0.5em] uppercase text-background/40 mb-8">
+      {/* HERO — 既存着用写真を背景に使用 */}
+      <section className="relative pt-36 pb-24 lg:pt-52 lg:pb-32 px-6 lg:px-12 text-background overflow-hidden">
+        {/* 背景画像 */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/dorsssdata/IMG_8360.JPG')" }}
+        />
+        {/* オーバーレイ */}
+        <div className="absolute inset-0 bg-foreground/72" />
+
+        <FadeIn className="relative text-center mx-auto">
+          <p className="text-[10px] tracking-[0.5em] uppercase text-background/50 mb-8">
             For Photographers &amp; Studios
           </p>
           <h1
@@ -80,17 +118,24 @@ export default function Home() {
             韓国直輸入のウェディングドレスを、撮影業者・カメラマン様向けに法人レンタル。
             ボリュームドレスからシンプルドレス、アクセサリーまで一括でご用意しています。
           </p>
-          <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 bg-accent-premium text-foreground text-[11px] tracking-[0.3em] uppercase hover:opacity-90 transition-opacity duration-300 mb-4"
-          >
-            無料カタログをLINEで受け取る（初回10% OFF）
-          </a>
-          <p className="text-[10px] text-background/30 tracking-wider">
-            登録無料・返信は通常24時間以内
+          <CtaBlock dark />
+        </FadeIn>
+      </section>
+
+      {/* TARGET — こんな方に */}
+      <section className="py-12 px-6 lg:px-12 bg-subtle border-b border-border">
+        <FadeIn className="max-w-3xl mx-auto">
+          <p className="text-[10px] tracking-[0.4em] uppercase text-foreground/30 mb-5 text-center">
+            こんな方に選ばれています
           </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {targets.map((t) => (
+              <div key={t} className="flex items-center gap-3">
+                <span className="text-accent-premium text-base leading-none flex-shrink-0">✓</span>
+                <span className="text-sm text-foreground/70 tracking-wide">{t}</span>
+              </div>
+            ))}
+          </div>
         </FadeIn>
       </section>
 
@@ -111,7 +156,7 @@ export default function Home() {
           ))}
         </div>
         <FadeIn delay={0.3}>
-          <CtaButton />
+          <CtaBlock />
         </FadeIn>
       </section>
 
@@ -125,28 +170,39 @@ export default function Home() {
           >
             韓国直輸入だから実現できる、<br />国内レンタルより大幅に安い料金
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
-            {[
-              { label: "国内一般レンタル", note: "（相場）", highlight: false },
-              { label: "SON RÊVE", note: "韓国直仕入れ", highlight: true },
-              { label: "差額分を", note: "撮影品質・本数アップへ", highlight: false },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className={`p-6 text-center border ${item.highlight ? "border-accent-premium bg-accent-premium/10" : "border-background/10"}`}
-              >
-                <p className={`text-[10px] tracking-widest mb-2 ${item.highlight ? "text-accent-premium" : "text-background/40"}`}>
-                  {item.note}
-                </p>
-                <p className={`text-lg font-light tracking-wide ${item.highlight ? "text-accent-premium" : "text-background/60"}`}>
-                  {item.label}
-                </p>
-              </div>
-            ))}
+
+          {/* 横並び比較 */}
+          <div className="grid grid-cols-3 gap-3 mb-6">
+            <div className="p-5 text-center border border-background/10 flex flex-col justify-center">
+              <p className="text-[9px] tracking-widest text-background/30 mb-2">国内相場</p>
+              <p className="text-sm text-background/40 font-light">高コスト</p>
+            </div>
+            <div className="p-5 text-center border border-accent-premium bg-accent-premium/10 flex flex-col justify-center">
+              <p className="text-[9px] tracking-widest text-accent-premium mb-2">SON RÊVE</p>
+              <p className="text-sm text-accent-premium font-light">低コスト</p>
+            </div>
+            <div className="p-5 text-center border border-background/10 flex flex-col justify-center">
+              <p className="text-[9px] tracking-widest text-background/30 mb-2">差額分を</p>
+              <p className="text-sm text-background/50 font-light leading-snug">撮影本数・<br />品質アップへ</p>
+            </div>
           </div>
-          <p className="text-[11px] text-background/30 text-center mt-4 tracking-wider">
+
+          <p className="text-[11px] text-background/30 text-center mb-8 tracking-wider">
             ※ 具体的な料金はカタログにてご案内しています
           </p>
+
+          {/* カタログCTA */}
+          <div className="text-center">
+            <a
+              href={LINE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent-premium text-foreground text-[11px] tracking-[0.25em] uppercase hover:opacity-90 transition-opacity duration-300 mb-3"
+            >
+              料金をカタログで確認する
+            </a>
+            <p className="text-[10px] text-background/30 tracking-wider">登録無料・返信は通常24時間以内</p>
+          </div>
         </FadeIn>
       </section>
 
@@ -161,28 +217,63 @@ export default function Home() {
             ご利用の流れ
           </h2>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+
+        {/* モバイル：横スクロール / PC：4列 */}
+        <div className="flex overflow-x-auto gap-0 pb-4 md:grid md:grid-cols-4 md:overflow-visible md:pb-0 -mx-6 px-6 md:mx-0 md:px-0">
           {flowSteps.map((s, i) => (
-            <FadeIn key={s.step} delay={i * 0.1}>
-              <div className="relative">
-                <p
-                  className="text-5xl font-light text-foreground/10 mb-4 leading-none"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                >
-                  {s.step}
-                </p>
-                <h3 className="text-sm font-normal tracking-wide text-foreground/80 mb-3 leading-snug">
-                  {s.title}
-                </h3>
-                <p className="text-[12px] text-foreground/50 leading-loose tracking-wider">{s.desc}</p>
-              </div>
-            </FadeIn>
+            <div
+              key={s.step}
+              className="flex-shrink-0 w-[72vw] sm:w-[55vw] md:w-auto relative pl-0 pr-6 md:pr-0"
+            >
+              <FadeIn delay={i * 0.1}>
+                <div className="bg-background p-6 h-full md:bg-transparent md:p-0">
+                  <p
+                    className="text-4xl font-light text-accent-premium/40 mb-3 leading-none"
+                    style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                  >
+                    {s.step}
+                  </p>
+                  <h3 className="text-sm font-normal tracking-wide text-foreground/80 mb-2 leading-snug">
+                    {s.title}
+                  </h3>
+                  <p className="text-[12px] text-foreground/50 leading-loose tracking-wider">{s.desc}</p>
+                </div>
+              </FadeIn>
+            </div>
           ))}
         </div>
+        <p className="text-[10px] text-foreground/30 text-center mt-6 md:hidden">← スワイプで確認 →</p>
+      </section>
+
+      {/* CATALOG CONTENTS — 何が届くか */}
+      <section className="py-16 lg:py-20 px-6 lg:px-12 border-y border-border">
+        <FadeIn className="max-w-2xl mx-auto text-center">
+          <p className="text-[10px] tracking-[0.5em] uppercase text-foreground/30 mb-4">Catalog</p>
+          <h2
+            className="text-2xl lg:text-3xl font-light mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}
+          >
+            カタログに含まれるもの
+          </h2>
+          <p className="text-[12px] text-foreground/40 tracking-wider mb-8">
+            LINEにご登録後、PDFカタログを無料でお送りします
+          </p>
+          <ul className="text-left inline-block mb-10 space-y-3">
+            {catalogContents.map((item) => (
+              <li key={item} className="flex items-center gap-3 text-sm text-foreground/70 tracking-wide">
+                <span className="text-accent-premium flex-shrink-0">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div>
+            <CtaBlock />
+          </div>
+        </FadeIn>
       </section>
 
       {/* VOLUME DRESS */}
-      <section id="volume-dress" className="py-20 lg:py-28 px-6 lg:px-12">
+      <section id="volume-dress" className="py-20 lg:py-28 px-6 lg:px-12 bg-muted">
         <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6">
           <div>
             <p className="text-[10px] tracking-[0.5em] uppercase text-foreground/30 mb-4">Volume Dress</p>
@@ -193,14 +284,7 @@ export default function Home() {
               Volume Dress
             </h2>
           </div>
-          <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 bg-accent-premium text-foreground text-[10px] tracking-[0.25em] uppercase hover:opacity-90 transition-opacity duration-300 self-start md:self-auto"
-          >
-            カタログを受け取る
-          </a>
+          <SectionCta />
         </FadeIn>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12">
           {volumeDresses.map((item, i) => (
@@ -210,7 +294,7 @@ export default function Home() {
       </section>
 
       {/* SIMPLE DRESS */}
-      <section id="simple-dress" className="py-20 lg:py-28 px-6 lg:px-12 bg-muted">
+      <section id="simple-dress" className="py-20 lg:py-28 px-6 lg:px-12">
         <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6">
           <div>
             <p className="text-[10px] tracking-[0.5em] uppercase text-foreground/30 mb-4">Simple Dress</p>
@@ -221,14 +305,7 @@ export default function Home() {
               Simple Dress
             </h2>
           </div>
-          <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 bg-accent-premium text-foreground text-[10px] tracking-[0.25em] uppercase hover:opacity-90 transition-opacity duration-300 self-start md:self-auto"
-          >
-            カタログを受け取る
-          </a>
+          <SectionCta />
         </FadeIn>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12">
           {simpleDresses.map((item, i) => (
@@ -238,7 +315,7 @@ export default function Home() {
       </section>
 
       {/* ACCESSORIES */}
-      <section id="accessories" className="py-20 lg:py-28 px-6 lg:px-12">
+      <section id="accessories" className="py-20 lg:py-28 px-6 lg:px-12 bg-muted">
         <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6">
           <div>
             <p className="text-[10px] tracking-[0.5em] uppercase text-foreground/30 mb-4">Accessories</p>
@@ -249,14 +326,7 @@ export default function Home() {
               Accessories
             </h2>
           </div>
-          <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 bg-accent-premium text-foreground text-[10px] tracking-[0.25em] uppercase hover:opacity-90 transition-opacity duration-300 self-start md:self-auto"
-          >
-            カタログを受け取る
-          </a>
+          <SectionCta />
         </FadeIn>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12">
           {accessories.map((item, i) => (
@@ -279,17 +349,7 @@ export default function Home() {
             ドレスラインナップ・料金・レンタル条件をまとめたPDFカタログを無料でお送りします。<br />
             LINEに「カタログ希望」とお送りください。
           </p>
-          <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 bg-accent-premium text-foreground text-[11px] tracking-[0.3em] uppercase hover:opacity-90 transition-opacity duration-300 mb-4"
-          >
-            無料カタログをLINEで受け取る（初回10% OFF）
-          </a>
-          <p className="text-[10px] text-background/30 tracking-wider">
-            登録無料・返信は通常24時間以内
-          </p>
+          <CtaBlock dark />
         </FadeIn>
       </section>
 
@@ -303,7 +363,7 @@ export default function Home() {
           >
             運営会社
           </h2>
-          <dl className="grid grid-cols-[6rem_1fr] md:grid-cols-[8rem_1fr] gap-x-6 gap-y-4 text-sm text-foreground/60 tracking-wider">
+          <dl className="grid grid-cols-[5rem_1fr] md:grid-cols-[8rem_1fr] gap-x-6 gap-y-4 text-sm text-foreground/60 tracking-wider">
             <dt className="text-[11px] text-foreground/35 uppercase tracking-[0.15em] pt-0.5">社名</dt>
             <dd>I KIDS KOREA株式会社</dd>
             <dt className="text-[11px] text-foreground/35 uppercase tracking-[0.15em] pt-0.5">所在地</dt>

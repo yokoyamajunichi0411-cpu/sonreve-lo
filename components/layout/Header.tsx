@@ -32,9 +32,9 @@ export default function Header() {
 
         <a
           href="#contact"
-          className="text-[11px] tracking-[0.25em] uppercase border border-foreground/20 px-4 py-2 hover:border-foreground/60 transition-colors duration-300"
+          className="text-[11px] tracking-[0.2em] uppercase bg-accent-premium text-foreground px-4 py-2 hover:opacity-90 transition-opacity duration-300"
         >
-          お問い合わせ
+          無料カタログを受け取る
         </a>
       </div>
       </div>
