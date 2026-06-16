@@ -31,7 +31,7 @@ volumeDresses[0].images = [
 ];
 
 volumeDresses[1].name = "Pearl Étoile";
-volumeDresses[1].description = "無数のパールとクリスタルが輝くAラインドレス。光の中で星のように煌めく繊細なビーディングが、花嫁をより美しく演出します。";
+volumeDresses[1].description = "繊細なパールとクリスタルを贅沢にあしらったラグジュアリーウェディングドレス。深めのVネックと上品なイリュージョンデザインがデコルテを美しく演出し、流れるようなビーディングと繊細な輝きが花嫁をより一層華やかに彩ります。特別な一日にふさわしい、気品と存在感を兼ね備えた一着です。";
 volumeDresses[1].images = [
   "/dorsssdata/VD-02/IMG_8367.JPG",
   "/dorsssdata/VD-02/IMG_8368.JPG",
