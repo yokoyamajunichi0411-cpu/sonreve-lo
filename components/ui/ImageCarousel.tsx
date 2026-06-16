@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 
 interface ImageCarouselProps {
   images: string[];
@@ -9,8 +9,27 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   const [index, setIndex] = useState(0);
+  const [landscape, setLandscape] = useState<Record<number, boolean>>({});
   const trackRef = useRef<HTMLDivElement>(null);
   const drag = useRef<{ startX: number; scrollLeft: number; dragging: boolean } | null>(null);
+
+  const imgRefs = useRef<(HTMLImageElement | null)[]>([]);
+
+  const checkOrientation = useCallback(() => {
+    imgRefs.current.forEach((img, i) => {
+      if (img && img.naturalWidth > img.naturalHeight) {
+        setLandscape(prev => prev[i] ? prev : { ...prev, [i]: true });
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    checkOrientation();
+  }, [checkOrientation]);
+
+  const handleImageLoad = useCallback(() => {
+    checkOrientation();
+  }, [checkOrientation]);
 
   function handleScroll() {
     const track = trackRef.current;
@@ -50,10 +69,14 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
         {images.map((src, i) => (
           <img
             key={src}
+            ref={el => { imgRefs.current[i] = el; }}
             src={src}
             alt={`${alt} ${i + 1}`}
             draggable={false}
-            className="h-full w-full object-cover flex-shrink-0 snap-start select-none"
+            onLoad={handleImageLoad}
+            className={`h-full w-full flex-shrink-0 snap-start select-none ${
+              landscape[i] ? "object-contain bg-muted" : "object-cover"
+            }`}
           />
         ))}
       </div>
