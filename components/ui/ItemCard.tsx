@@ -38,6 +38,11 @@ export default function ItemCard({ item, delay = 0 }: ItemCardProps) {
         >
           {item.name}
         </p>
+        {item.description && (
+          <p className="mt-2 text-[11px] text-foreground/50 leading-relaxed tracking-wide">
+            {item.description}
+          </p>
+        )}
       </div>
     </FadeIn>
   );
