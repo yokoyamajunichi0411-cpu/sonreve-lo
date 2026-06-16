@@ -33,7 +33,7 @@ export default function Home() {
             className="text-4xl lg:text-7xl font-light leading-[1.2] max-w-3xl mx-auto mb-8"
             style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}
           >
-            撮影のためのドレスを、もっと自由に。
+            ドレスで、撮影を<br />もっと自由に。
           </h1>
           <p className="text-sm text-background/60 leading-loose tracking-wider max-w-lg mx-auto mb-10">
             韓国直輸入のウェディングドレスを、撮影業者・カメラマン様向けに法人レンタル。
