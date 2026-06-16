@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div id="top">
       {/* HERO */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 px-6 lg:px-12 bg-foreground text-background overflow-hidden">
+      <section className="relative pt-36 pb-24 lg:pt-52 lg:pb-32 px-6 lg:px-12 bg-foreground text-background overflow-hidden">
         <FadeIn className="text-center mx-auto">
           <p className="text-[10px] tracking-[0.5em] uppercase text-background/40 mb-8">
             For Photographers &amp; Studios
@@ -43,10 +43,13 @@ export default function Home() {
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 border border-background/30 text-[11px] tracking-[0.3em] uppercase hover:border-background/70 transition-colors duration-500"
+            className="inline-flex items-center justify-center px-8 py-4 bg-accent-premium text-foreground text-[11px] tracking-[0.3em] uppercase hover:opacity-90 transition-opacity duration-300 mb-4"
           >
-            公式LINEで問い合わせる
+            公式LINEで問い合わせる（初回10% OFF）
           </a>
+          <p className="text-[10px] text-background/30 tracking-wider">
+            登録無料・返信は通常24時間以内
+          </p>
         </FadeIn>
       </section>
 
@@ -140,10 +143,13 @@ export default function Home() {
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-8 py-4 border border-background/30 text-[11px] tracking-[0.3em] uppercase hover:border-background/70 transition-colors duration-500"
+            className="inline-flex items-center justify-center px-8 py-4 bg-accent-premium text-foreground text-[11px] tracking-[0.3em] uppercase hover:opacity-90 transition-opacity duration-300 mb-4"
           >
-            公式LINEで問い合わせる
+            公式LINEで問い合わせる（初回10% OFF）
           </a>
+          <p className="text-[10px] text-background/30 tracking-wider">
+            登録無料・返信は通常24時間以内
+          </p>
         </FadeIn>
       </section>
 
