@@ -99,7 +99,7 @@ export default function Home() {
         {/* 背景画像 */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/dorsssdata/IMG_8360.JPG')" }}
+          style={{ backgroundImage: "url('/dressdata/VD-001/IMG_8360.JPG')" }}
         />
         {/* オーバーレイ */}
         <div className="absolute inset-0 bg-foreground/72" />
