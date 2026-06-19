@@ -20,7 +20,7 @@ function placeholderSet(prefix: string, count: number, label: string): RentalIte
   });
 }
 
-export const volumeDresses: RentalItem[] = placeholderSet("VD", 13, "Volume Dress");
+export const volumeDresses: RentalItem[] = placeholderSet("VD", 15, "Volume Dress");
 
 // VD-01 Crystal Royale
 volumeDresses[0].name = "Crystal Royale";
@@ -75,7 +75,14 @@ volumeDresses[6].images = [
   "/dressdata/VD-007/IMG_8399.JPG",
 ];
 
-// VD-08, VD-09 → COMING SOON（画像なし）
+// VD-08
+volumeDresses[7].images = [
+  "/dressdata/VD-008/IMG_8425.JPG",
+  "/dressdata/VD-008/IMG_8426.JPG",
+  "/dressdata/VD-008/IMG_8427.JPG",
+];
+
+// VD-09 → COMING SOON（画像なし）
 
 // VD-10
 volumeDresses[9].images = [
@@ -105,6 +112,20 @@ volumeDresses[12].images = [
   "/dressdata/VD-013/IMG_8411.JPG",
   "/dressdata/VD-013/IMG_8412.JPG",
   "/dressdata/VD-013/IMG_8413.JPG",
+];
+
+// VD-14
+volumeDresses[13].images = [
+  "/dressdata/VD-014/IMG_8418.JPG",
+  "/dressdata/VD-014/IMG_8419.JPG",
+  "/dressdata/VD-014/IMG_8420.JPG",
+];
+
+// VD-15
+volumeDresses[14].images = [
+  "/dressdata/VD-015/IMG_8422.JPG",
+  "/dressdata/VD-015/IMG_8423.JPG",
+  "/dressdata/VD-015/IMG_8424.JPG",
 ];
 
 export const simpleDresses: RentalItem[] = placeholderSet("SD", 8, "Simple Dress");
