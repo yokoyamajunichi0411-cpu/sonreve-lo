@@ -2,8 +2,6 @@ import Image from "next/image";
 
 const navItems = [
   { href: "#volume-dress", label: "Volume Dress" },
-  { href: "#simple-dress", label: "Simple Dress" },
-  { href: "#accessories", label: "Accessories" },
 ];
 
 export default function Header() {

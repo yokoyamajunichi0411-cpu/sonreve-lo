@@ -1,6 +1,6 @@
 import FadeIn from "@/components/ui/FadeIn";
 import ItemCard from "@/components/ui/ItemCard";
-import { volumeDresses, simpleDresses, accessories } from "@/lib/items";
+import { volumeDresses } from "@/lib/items";
 
 const targets = [
   "前撮り・フォトウェディング専門スタジオ",
@@ -288,48 +288,6 @@ export default function Home() {
         </FadeIn>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12">
           {volumeDresses.map((item, i) => (
-            <ItemCard key={item.code} item={item} delay={i * 0.05} />
-          ))}
-        </div>
-      </section>
-
-      {/* SIMPLE DRESS */}
-      <section id="simple-dress" className="py-20 lg:py-28 px-6 lg:px-12">
-        <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6">
-          <div>
-            <p className="text-[10px] tracking-[0.5em] uppercase text-foreground/30 mb-4">Simple Dress</p>
-            <h2
-              className="text-3xl lg:text-4xl font-light"
-              style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}
-            >
-              Simple Dress
-            </h2>
-          </div>
-          <SectionCta />
-        </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12">
-          {simpleDresses.map((item, i) => (
-            <ItemCard key={item.code} item={item} delay={i * 0.05} />
-          ))}
-        </div>
-      </section>
-
-      {/* ACCESSORIES */}
-      <section id="accessories" className="py-20 lg:py-28 px-6 lg:px-12 bg-muted">
-        <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6">
-          <div>
-            <p className="text-[10px] tracking-[0.5em] uppercase text-foreground/30 mb-4">Accessories</p>
-            <h2
-              className="text-3xl lg:text-4xl font-light"
-              style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic" }}
-            >
-              Accessories
-            </h2>
-          </div>
-          <SectionCta />
-        </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12">
-          {accessories.map((item, i) => (
             <ItemCard key={item.code} item={item} delay={i * 0.05} />
           ))}
         </div>
