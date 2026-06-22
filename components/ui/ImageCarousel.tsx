@@ -53,7 +53,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
             src={src}
             alt={`${alt} ${i + 1}`}
             draggable={false}
-            className="h-full w-full object-contain flex-shrink-0 snap-start select-none"
+            className="h-full w-full object-cover object-top flex-shrink-0 snap-start select-none"
           />
         ))}
       </div>
