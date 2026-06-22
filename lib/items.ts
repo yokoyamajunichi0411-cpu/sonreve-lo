@@ -162,7 +162,9 @@ volumeDresses[17].images = [
   "/dressdata/VD-018/IMG_8471.JPG",
 ];
 
-// VD-19
+// VD-19 Ivory Satin Peplum Two-Piece Dress
+volumeDresses[18].name = "Ivory Satin Peplum Two-Piece Dress";
+volumeDresses[18].description = "上品なサテン素材を使用した、アイボリーのツーピースドレス。すっきりとしたトップスにペプラムデザインを合わせ、タイトなミディスカートが洗練された女性らしさを演出します。";
 volumeDresses[18].images = [
   "/dressdata/VD-019/IMG_8472.JPG",
   "/dressdata/VD-019/IMG_8473.JPG",
