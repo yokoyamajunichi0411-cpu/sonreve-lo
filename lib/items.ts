@@ -82,7 +82,14 @@ volumeDresses[7].images = [
   "/dressdata/VD-008/IMG_8427.JPG",
 ];
 
-// VD-09 → COMING SOON（画像なし）
+// VD-09 Ivory Illusion Beaded A-Line Dress
+volumeDresses[8].name = "Ivory Illusion Beaded A-Line Dress";
+volumeDresses[8].description = "イリュージョンネックに繊細なビーズ刺繍をあしらった、上品なAラインドレス。軽やかに広がるソフトチュールスカートと、前裾に動きを持たせたヘムラインが、清楚で洗練された印象を演出します。";
+volumeDresses[8].images = [
+  "/dressdata/VD-009/IMG_8453.JPG",
+  "/dressdata/VD-009/IMG_8454.JPG",
+  "/dressdata/VD-009/IMG_8455.JPG",
+];
 
 // VD-10
 volumeDresses[9].images = [
