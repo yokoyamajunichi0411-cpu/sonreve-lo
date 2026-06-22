@@ -20,7 +20,7 @@ function placeholderSet(prefix: string, count: number, label: string): RentalIte
   });
 }
 
-export const volumeDresses: RentalItem[] = placeholderSet("VD", 15, "Volume Dress");
+export const volumeDresses: RentalItem[] = placeholderSet("VD", 20, "Volume Dress");
 
 // VD-01 Crystal Royale
 volumeDresses[0].name = "Crystal Royale";
@@ -133,6 +133,49 @@ volumeDresses[14].images = [
   "/dressdata/VD-015/IMG_8422.JPG",
   "/dressdata/VD-015/IMG_8423.JPG",
   "/dressdata/VD-015/IMG_8424.JPG",
+];
+
+// VD-16 Ivory Lace Evening Dress
+volumeDresses[15].name = "Ivory Lace Evening Dress";
+volumeDresses[15].description = "上品なストレートネックラインに、繊細なフラワーレースを重ねたアイボリーのイブニングドレス。すっきりとしたシルエットとやわらかなレースの質感が、清楚で洗練された印象を演出します。";
+volumeDresses[15].images = [
+  "/dressdata/VD-016/IMG_8463.JPG",
+  "/dressdata/VD-016/IMG_8464.JPG",
+  "/dressdata/VD-016/IMG_8465.JPG",
+];
+
+// VD-17 Ivory Illusion Minimal Dress
+volumeDresses[16].name = "Ivory Illusion Minimal Dress";
+volumeDresses[16].description = "シアーなイリュージョンネックと、すっきりとしたミニマルデザインが印象的なアイボリードレス。やわらかに流れるスカートラインが、上品で清楚な雰囲気を演出します。";
+volumeDresses[16].images = [
+  "/dressdata/VD-017/IMG_8466.JPG",
+  "/dressdata/VD-017/IMG_8467.JPG",
+  "/dressdata/VD-017/IMG_8468.JPG",
+];
+
+// VD-18 Ivory Floral Lace Midi Dress
+volumeDresses[17].name = "Ivory Floral Lace Midi Dress";
+volumeDresses[17].description = "上品なVネックラインと繊細なフローラルレースが印象的なアイボリーのミディドレス。透け感のある七分袖とスカラップヘムが、清楚でクラシカルな雰囲気を演出します。";
+volumeDresses[17].images = [
+  "/dressdata/VD-018/IMG_8469.JPG",
+  "/dressdata/VD-018/IMG_8470.JPG",
+  "/dressdata/VD-018/IMG_8471.JPG",
+];
+
+// VD-19
+volumeDresses[18].images = [
+  "/dressdata/VD-019/IMG_8472.JPG",
+  "/dressdata/VD-019/IMG_8473.JPG",
+  "/dressdata/VD-019/IMG_8474.JPG",
+];
+
+// VD-20 Blush Floral Lace Midi Dress
+volumeDresses[19].name = "Blush Floral Lace Midi Dress";
+volumeDresses[19].description = "上品なブラッシュカラーに繊細なフローラルレースを重ねた、ミディ丈のレースドレス。やわらかな透け感のあるショートスリーブと、すっきりとしたラインが清楚で華やかな印象を演出します。";
+volumeDresses[19].images = [
+  "/dressdata/VD-020/IMG_8475.JPG",
+  "/dressdata/VD-020/IMG_8476.JPG",
+  "/dressdata/VD-020/IMG_8477.JPG",
 ];
 
 export const simpleDresses: RentalItem[] = placeholderSet("SD", 8, "Simple Dress");
